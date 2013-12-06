@@ -10,7 +10,7 @@ var DirectoryEncoder = require('directory-encoder');
 var de = new DirectoryEncoder( source, destinationCSSFile, {
 			pngfolder: pngfolder, //in case you need to link out for PNGs,
 like when the datauri is way too long
-			customselectors: [{"foo": ".bar"}], 
+			customselectors: { "foo": [".bar", ".baz"]}, 
 			template: template.hbs, //template in handlebars, FANCY!
 			noencodepng: false // turn this to true if you want no datauris
 for pngs, just links out to png files
@@ -38,7 +38,7 @@ All the magic happens here.
 var de = new DirectoryEncoder( source, destinationCSSFile, {
 			pngfolder: pngfolder, //in case you need to link out for PNGs,
 like when the datauri is way too long
-			customselectors: [{"foo": ".bar"}], 
+			customselectors: { "foo": [".bar", ".baz"]}, 
 			template: template.hbs, //template in handlebars, FANCY!
 			noencodepng: false // turn this to true if you want no datauris
 for pngs, just links out to png files
