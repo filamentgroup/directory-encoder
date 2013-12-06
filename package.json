@@ -1,0 +1,41 @@
+{
+	"name": "directory-encoder",
+	"description": "Encode a directory of images to CSS",
+	"version": "0.1.0",
+	"homepage": "https://github.com/filamentgroup/directory-encoder",
+	"author": {
+		"name": "John Bender/Jeffrey Lembeck/Filament Group",
+		"email": "thegroup@filamentgroup.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/filamentgroup/directory-encoder"
+	},
+	"bugs": {
+		"url": "https://github.com/filamentgroup/directory-encoder/issues"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/filamentgroup/directory-encoder/blob/master/LICENSE-MIT"
+		}
+	],
+	"main": "lib/directory-encoder",
+	"engines": {
+		"node": ">= 0.10.0"
+	},
+	"scripts": {
+		"test": "grunt travis --verbose"
+	},
+	"dependencies": {
+		"handlebars": "1.1.2",
+		"lodash":"2.4.0"
+	},
+	"devDependencies": {
+		"grunt-contrib-jshint": "~0.1.1",
+		"grunt-contrib-nodeunit": "~0.1.2",
+		"grunt-contrib-watch": "~0.2.0",
+		"grunt": "~0.4.2"
+	},
+	"keywords": []
+}
