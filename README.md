@@ -6,22 +6,53 @@ Encode a directory of images to CSS
 Install the module with: `npm install directory-encoder`
 
 ```javascript
-var directory_encoder = require('directory-encoder');
-directory_encoder.awesome(); // "awesome"
+var DirectoryEncoder = require('directory-encoder');
+var de = new DirectoryEncoder( source, destinationCSSFile, {
+			pngfolder: pngfolder, //in case you need to link out for PNGs,
+like when the datauri is way too long
+			customselectors: [{"foo": ".bar"}], 
+			template: template.hbs, //template in handlebars, FANCY!
+			noencodepng: false // turn this to true if you want no datauris
+for pngs, just links out to png files
+		});
+de.encode(); // "Guitar solo -- File outputted"
 ```
 
 ## Documentation
-_(Coming soon)_
+
+### Constructor
+
+Takes three arguments, source directory for encoding, destination css
+file for when it writes, and an options hash that includes a spot for
+customselectors, a hbs template in case you want to get nuts with your
+css, where the pngs are located if you want to link out to them (or you
+don't have a choice because the data uri is bigger than 32k), and a
+switch to turn off datauris for pngs.
+
+### encode
+
+All the magic happens here.
 
 ## Examples
-_(Coming soon)_
+```
+var de = new DirectoryEncoder( source, destinationCSSFile, {
+			pngfolder: pngfolder, //in case you need to link out for PNGs,
+like when the datauri is way too long
+			customselectors: [{"foo": ".bar"}], 
+			template: template.hbs, //template in handlebars, FANCY!
+			noencodepng: false // turn this to true if you want no datauris
+for pngs, just links out to png files
+		});
+de.encode(); // "Guitar solo -- File outputted"
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+
+0.1.0  Woo
 
 ## License
-Copyright (c) 2013 John Bender & Jeffrey Lembeck  
+Copyright (c) 2013 John Bender/Jeffrey Lembeck/Filament Group
 Licensed under the MIT license.
