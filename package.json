@@ -1,7 +1,7 @@
 {
 	"name": "directory-encoder",
 	"description": "Encode a directory of images to CSS",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"homepage": "https://github.com/filamentgroup/directory-encoder",
 	"author": {
 		"name": "John Bender/Jeffrey Lembeck/Filament Group",
@@ -28,6 +28,7 @@
 		"test": "grunt travis --verbose"
 	},
 	"dependencies": {
+		"fs-extra": "0.8.1",
 		"handlebars": "1.1.2",
 		"lodash":"2.4.0"
 	},
