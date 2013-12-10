@@ -11,6 +11,7 @@ var de = new DirectoryEncoder( source, destinationCSSFile, {
 			pngfolder: pngfolder, //in case you need to link out for PNGs,
 like when the datauri is way too long
 			customselectors: { "foo": [".bar", ".baz"]}, 
+			prefix: ".icon-", // used to prefix the name of the file for the CSS classname, .icon- is the default
 			template: template.hbs, //template in handlebars, FANCY!
 			noencodepng: false // turn this to true if you want no datauris
 for pngs, just links out to png files
@@ -51,7 +52,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-0.1.0  Woo
+* 0.1.0  Woo
+* 0.2.0  Adding switchable icon name prefixes
 
 ## License
 Copyright (c) 2013 John Bender/Jeffrey Lembeck/Filament Group

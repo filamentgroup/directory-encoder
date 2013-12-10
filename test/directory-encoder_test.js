@@ -88,6 +88,14 @@
 																		"foo": [".icon-2"]
 																	}
 																} );
+			this.encoder4 = new Constructor( "test/encoding", "test/output/encoded3.css",
+																{
+																	template: path.resolve( "test/files/default-css.hbs" ),
+																	prefix: ".what-",
+																	customselectors: {
+																		"foo": [".icon-2"]
+																	}
+																} );
 			done();
 		},
 
@@ -114,7 +122,18 @@
 					"\tbackground-repeat: no-repeat;\n" +
 				"}\n" );
 			test.done();
+		},
+
+		withDifferentPrefix: function( test ) {
+			test.equal( this.encoder4._css("foo", "bar"),
+				"\n.icon-2,\n" +
+				"\n.what-foo {\n" +
+					"\tbackground-image: url('bar');\n" +
+					"\tbackground-repeat: no-repeat;\n" +
+				"}\n" );
+			test.done();
 		}
+
 
 	};
 }(typeof exports === 'object' && exports || this));
