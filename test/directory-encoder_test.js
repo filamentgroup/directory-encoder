@@ -97,6 +97,16 @@
 																		"foo": [".icon-2"]
 																	}
 																} );
+			this.encoder5 = new Constructor( "test/directory-files",
+						"test/output/encoded3.css",
+						{
+							template: path.resolve( "test/files/default-css.hbs" ),
+							prefix: ".icon-",
+							customselectors: {
+								"*": [".icon-$1:before", ".icon-$1-what", ".hey-$1"],
+								"foo": [".icon-2"]
+							}
+						});
 			done();
 		},
 		tearDown: function( done ){
@@ -135,6 +145,19 @@
 			test.equal( this.encoder4._css("foo", "bar"),
 				"\n.icon-2,\n" +
 				"\n.what-foo {\n" +
+					"\tbackground-image: url('bar');\n" +
+					"\tbackground-repeat: no-repeat;\n" +
+				"}\n" );
+			test.done();
+		},
+
+		withCustomSelectAll: function( test ){
+			test.equal( this.encoder5._css("foo", "bar"),
+				"\n.icon-foo:before,\n" +
+				"\n.icon-foo-what,\n" +
+				"\n.hey-foo,\n" +
+				"\n.icon-2,\n" +
+				"\n.icon-foo {\n" +
 					"\tbackground-image: url('bar');\n" +
 					"\tbackground-repeat: no-repeat;\n" +
 				"}\n" );
