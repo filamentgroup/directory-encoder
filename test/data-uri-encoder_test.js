@@ -96,13 +96,14 @@
 				return datauri;
 			};
 
-			test.equal( this.encoder.encode({ pngfolder: "foo" }), "foo/bear.png" );
+			test.equal( this.encoder.encode({ pngfolder: "foo" }), 'foo/bear.png' );
 			test.done();
 		}
 	};
 	exports['PngURIEncoder2'] = {
 		setUp: function( done ) {
 			this.encoder = new PngURIEncoder( "test/files/bear.png" );
+			this.encoder2 = new PngURIEncoder( "test/files/bear copy.png" );
 			done();
 		},
 		tearDown: function( done ){
@@ -114,7 +115,8 @@
 				pngfolder: "bar"
 			};
 
-			test.equal( this.encoder.encode(options), "bar/bear.png" );
+			test.equal( this.encoder.encode(options), 'bar/bear.png' );
+			test.equal( this.encoder2.encode(options), 'bar/bear copy.png' );
 			test.done();
 		}
 	};
