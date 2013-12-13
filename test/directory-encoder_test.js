@@ -121,7 +121,7 @@
 
 		rule: function( test ) {
 			test.equal( this.encoder._css("foo", "bar"),
-				".foo { background-image: url('bar'); background-repeat: no-repeat; }" );
+				".icon-foo { background-image: url('bar'); background-repeat: no-repeat; }" );
 			test.done();
 		},
 
