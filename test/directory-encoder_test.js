@@ -184,7 +184,7 @@
 				".hey-foo,\n" +
 				".icon-foo { " +
 					"background-image: url('bar'); " +
-					"background-repeat: no-repeat;" +
+					"background-repeat: no-repeat; " +
 				"}" );
 			test.done();
 		}
