@@ -1,7 +1,7 @@
 {
 	"name": "directory-encoder",
 	"description": "Encode a directory of images to CSS",
-	"version": "0.3.6",
+	"version": "0.3.7",
 	"homepage": "https://github.com/filamentgroup/directory-encoder",
 	"author": {
 		"name": "John Bender/Jeffrey Lembeck/Filament Group",
