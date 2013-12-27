@@ -59,12 +59,10 @@
 		},
 
 		stats: function( test ) {
-			test.equal( this.encoder.stats().width, 100, "Width should match" );
-			test.equal( this.encoder.stats().height, 100, "Height should match on png" );
-			test.equal( this.encoder.stats().type, "PNG", "Type should match" );
-			test.equal( this.encoder2.stats().width, 100, "Width should match" );
-			test.equal( this.encoder2.stats().height, 62.905, "Height should match on svg" );
-			test.equal( this.encoder2.stats().type, "SVG", "Type should match" );
+			test.equal( this.encoder.stats().width, '100px', "Width should match" );
+			test.equal( this.encoder.stats().height, '100px', "Height should match on png" );
+			test.equal( this.encoder2.stats().width, '100px', "Width should match" );
+			test.equal( this.encoder2.stats().height, '62.905px', "Height should match on svg" );
 			test.done();
 		}
 	};
@@ -121,7 +119,6 @@
 	exports['PngURIEncoder2'] = {
 		setUp: function( done ) {
 			this.encoder = new PngURIEncoder( "test/files/cat.png" );
-			this.encoder2 = new PngURIEncoder( "test/files/bear copy.png" );
 			done();
 		},
 		tearDown: function( done ){
@@ -134,7 +131,6 @@
 			};
 
 			test.equal( this.encoder.encode(options), 'bar/cat.png' );
-			test.equal( this.encoder2.encode(options), 'bar/bear copy.png' );
 			test.done();
 		}
 	};
