@@ -58,11 +58,17 @@
 
 		handler: function( test ) {
 			Constructor.encoders.svg = function(){};
+			Constructor.encoders.svg.prototype.stats = function(){
+				return {};
+			};
 			Constructor.encoders.svg.prototype.encode = function() {
 				return "foo";
 			};
 
 			Constructor.encoders.png = function(){};
+			Constructor.encoders.png.prototype.stats = function(){
+				return {};
+			};
 			Constructor.encoders.png.prototype.encode = function() {
 				return "bar";
 			};

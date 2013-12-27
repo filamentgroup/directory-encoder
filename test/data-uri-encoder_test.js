@@ -32,7 +32,7 @@
 
 	exports['encode'] = {
 		setUp: function( done ) {
-			this.encoder = new Constructor( "test/files/bear.png" );
+			this.encoder = new Constructor( "test/files/cat.png" );
 			done();
 		},
 
@@ -47,6 +47,24 @@
 				test.ok( fileData );
 			});
 
+			test.done();
+		}
+	};
+
+	exports['stats'] = {
+		setUp: function( done ) {
+			this.encoder = new Constructor( "test/files/cat.png" );
+			this.encoder2 = new Constructor( "test/files/bear.svg" );
+			done();
+		},
+
+		stats: function( test ) {
+			test.equal( this.encoder.stats().width, 100, "Width should match" );
+			test.equal( this.encoder.stats().height, 100, "Height should match on png" );
+			test.equal( this.encoder.stats().type, "PNG", "Type should match" );
+			test.equal( this.encoder2.stats().width, 100, "Width should match" );
+			test.equal( this.encoder2.stats().height, 62.905, "Height should match on svg" );
+			test.equal( this.encoder2.stats().type, "SVG", "Type should match" );
 			test.done();
 		}
 	};
@@ -69,7 +87,7 @@
 
 	exports['PngURIEncoder'] = {
 		setUp: function( done ) {
-			this.encoder = new PngURIEncoder( "test/files/bear.png" );
+			this.encoder = new PngURIEncoder( "test/files/cat.png" );
 			this.encode = _.clone( Constructor.prototype.encode );
 			done();
 		},
@@ -96,13 +114,13 @@
 				return datauri;
 			};
 
-			test.equal( this.encoder.encode({ pngfolder: "foo" }), 'foo/bear.png' );
+			test.equal( this.encoder.encode({ pngfolder: "foo" }), 'foo/cat.png' );
 			test.done();
 		}
 	};
 	exports['PngURIEncoder2'] = {
 		setUp: function( done ) {
-			this.encoder = new PngURIEncoder( "test/files/bear.png" );
+			this.encoder = new PngURIEncoder( "test/files/cat.png" );
 			this.encoder2 = new PngURIEncoder( "test/files/bear copy.png" );
 			done();
 		},
@@ -115,7 +133,7 @@
 				pngfolder: "bar"
 			};
 
-			test.equal( this.encoder.encode(options), 'bar/bear.png' );
+			test.equal( this.encoder.encode(options), 'bar/cat.png' );
 			test.equal( this.encoder2.encode(options), 'bar/bear copy.png' );
 			test.done();
 		}
