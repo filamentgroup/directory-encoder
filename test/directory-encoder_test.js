@@ -83,7 +83,6 @@
 		}
 	};
 
-
 	exports['css'] = {
 		setUp: function( done ) {
 			this.encoder = new Constructor( "test/directory-files", "test/output/encoded.css" );
@@ -122,6 +121,11 @@
 								"*": [".icon-$1:before", ".icon-$1-what", ".hey-$1"],
 								"foo": [".icon-2"]
 							}
+						});
+			this.encoder7 = new Constructor( "test/directory-files",
+						"test/output/encoded3.css",
+						{
+							cssdimensions: true
 						});
 			done();
 		},
@@ -188,6 +192,26 @@
 				".icon-foo:before,\n" +
 				".icon-foo-what,\n" +
 				".hey-foo,\n" +
+				".icon-foo { " +
+					"background-image: url('bar'); " +
+					"background-repeat: no-repeat; " +
+				"}" );
+			test.done();
+		},
+
+		withCssDimensionsAndStats: function( test ){
+			test.equal( this.encoder7._css("foo", "bar", {width: "100px", height: "200px"}),
+				".icon-foo { " +
+					"background-image: url('bar'); " +
+					"background-repeat: no-repeat; " +
+					"width: 100px; " +
+					"height: 200px; " +
+				"}" );
+			test.done();
+		},
+
+		withCssDimensionsAndNoStats: function( test ){
+			test.equal( this.encoder7._css("foo", "bar"),
 				".icon-foo { " +
 					"background-image: url('bar'); " +
 					"background-repeat: no-repeat; " +
