@@ -1,6 +1,6 @@
 # directory-encoder [![Build Status](https://secure.travis-ci.org/filamentgroup/directory-encoder.png?branch=master)](http://travis-ci.org/filamentgroup/directory-encoder)
 
-Encode a directory of images to CSS
+Encode a directory of PNG or SVG images to CSS
 
 ## Getting Started
 Install the module with: `npm install directory-encoder`
