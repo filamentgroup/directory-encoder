@@ -134,4 +134,23 @@
 			test.done();
 		}
 	};
+	exports['PngURIEncoder3'] = {
+		setUp: function( done ) {
+			this.encoder = new PngURIEncoder( "test/files/cat.png" );
+			done();
+		},
+		tearDown: function( done ){
+			done();
+		},
+		noencode_custompath: function( test ){
+			var options = {
+				noencodepng: true,
+				pngfolder: "foo",
+				pngpath: "bar"
+			};
+
+			test.equal( this.encoder.encode(options), 'bar/cat.png' );
+			test.done();
+		}
+	};
 }());
