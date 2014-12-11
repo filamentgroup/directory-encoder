@@ -82,6 +82,27 @@
 		}
 	};
 
+	/**
+	 * Test encoding brackets '(' and ')' to generate a valid encoded SVG 
+	 * in case of <g> element with functions in the 'transformation' attribute 
+	 */
+	exports['SvgURIEncoder_brackets'] = {
+		setUp: function( done ) {
+			this.encoder = new SvgURIEncoder( "test/files/bear.svg" );
+			done();
+		},
+
+		encode: function( test ) {
+			var datauri = this.encoder.encode();
+
+			test.ok( datauri.indexOf(SvgURIEncoder.prefix) >= 0 );
+			test.ok( datauri.indexOf( '%' ) >= 0 );
+			test.ok( datauri.indexOf( '(' ) === -1 );
+			test.ok( datauri.indexOf( ')' ) === -1 );
+			test.done();
+		}
+	};
+
 
 	exports['PngURIEncoder'] = {
 		setUp: function( done ) {
