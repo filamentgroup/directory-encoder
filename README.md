@@ -25,7 +25,8 @@ de.encode(); // "Guitar solo -- File outputted"
 
 ### Constructor
 
-Takes three arguments, source directory for encoding, destination css
+Takes three arguments, source directory for encoding/an array of files
+you'd like to encode, destination css
 file for when it writes, and an options hash that includes a spot for
 customselectors, a hbs template in case you want to get nuts with your
 css, where the pngs are located if you want to link out to them (or you
@@ -54,9 +55,12 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-* 0.1.0  Woo
-* 0.2.0  Adding switchable icon name prefixes
+* 0.6.0  Fix encoding brackets and ability to take an array
+* 0.5.0  PNGpath
+* 0.4.0  Width/Height from template
 * 0.3.0  Adding custom selectors that allow for wildcards
+* 0.2.0  Adding switchable icon name prefixes
+* 0.1.0  Woo
 
 ## License
 Copyright (c) 2013 John Bender/Jeffrey Lembeck/Filament Group
