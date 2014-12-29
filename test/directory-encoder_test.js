@@ -149,6 +149,14 @@
 			test.done();
 		},
 
+		withTemplateError: function( test ) {
+			test.expect(1);
+			test.throws(function(){
+				new Constructor( "test/directory-files", "test/output/encoded2.css",
+																	{ template: path.resolve( "test/files/not-here.hbs" )} );
+			});
+			test.done();
+		},
 		withTemplate: function( test ) {
 			test.equal( this.encoder2._css("foo", "bar"),
 				"\n.icon-foo {\n" +
