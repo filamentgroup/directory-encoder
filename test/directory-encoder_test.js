@@ -215,7 +215,7 @@
 
 	exports.encode = {
 		setUp: function( done ){
-			this.encoder = new Constructor( "test/directory-files", "test/output/encode.css",
+			this.encoder = new Constructor( ["test/directory-files/bear.svg", "test/directory-files/dog.png"], "test/output/encode.css",
 													{
 														template: path.resolve( "test/files/default-css.hbs" ),
 														prefix: ".what-",
@@ -224,7 +224,7 @@
 														},
 														noencodepng: true
 													} );
-			this.encoder2 = new Constructor( "test/directory-files", "test/output/encode2.css",
+			this.encoder2 = new Constructor( ["test/directory-files/bear.svg", "test/directory-files/dog.png"], "test/output/encode2.css",
 													{
 														template: path.resolve( "test/files/default-css.hbs" ),
 														prefix: ".what-",
