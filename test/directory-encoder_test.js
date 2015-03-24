@@ -19,6 +19,7 @@
 			done();
 		},
 		noargs: function( test ){
+			test.expect(1);
 			test.throws(function(){
 				new Constructor();
 			}, "Constructor should throw error if now arguments passed in");
