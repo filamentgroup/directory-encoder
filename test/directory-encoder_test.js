@@ -44,8 +44,28 @@
 			test.equal( de.prefix, ".icon-", "Default prefix is .icon-" );
 			test.equal( Object.keys(de.customselectors).length, 0, "Default custom selectors is empty object" );
 			test.deepEqual( de.template, false, "Default value for a template is false" );
-			test.deepEqual( de.templatePrepend, "", "Defaul value for templatePrepend is empty string" );
-			test.deepEqual( de.templateAppend, "", "Defaul value for templateAppend is empty string" );
+			test.deepEqual( de.templatePrepend, "", "Default value for templatePrepend is empty string" );
+			test.deepEqual( de.templateAppend, "", "Default value for templateAppend is empty string" );
+
+			test.done();
+		},
+		options: function( test ){
+			test.expect(6);
+			var output = "testfile.css";
+			var options = {
+				prefix: "foo",
+				templatePrepend: "baa",
+				templateAppend: "ram"
+			};
+
+			var de = new Constructor( ["foo.svg", "bar.svg"], output, options );
+			test.equal( de.output, output, "Output should be set" );
+			test.equal( de.files[0], "foo.svg", "First file should match foo.svg" );
+			test.equal( de.files[1], "bar.svg", "First file should match foo.svg" );
+
+			test.equal( de.prefix, "foo", "Default prefix is .icon-" );
+			test.deepEqual( de.templatePrepend, "baa", "Default value for templatePrepend is empty string" );
+			test.deepEqual( de.templateAppend, "ram", "Default value for templateAppend is empty string" );
 
 			test.done();
 		}
