@@ -57,6 +57,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+* 0.7.0  Add templateAppend and templatePrepend options
 * 0.6.0  Fix encoding brackets and ability to take an array
 * 0.5.0  PNGpath
 * 0.4.0  Width/Height from template
