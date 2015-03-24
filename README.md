@@ -14,7 +14,9 @@ var de = new DirectoryEncoder( source, destinationCSSFile, {
 like when the datauri is way too long
 			customselectors: { "foo": [".bar", ".baz"]}, 
 			prefix: ".icon-", // used to prefix the name of the file for the CSS classname, .icon- is the default
+			templatePrepend: "/* start of icon-list */", // this string is prepended to the destinationCSSFile, defaults to ""
 			template: template.hbs, //template in handlebars, FANCY!
+			templateAppend: "/* end of icon-list */", // this string is appended to the destinationCSSFile, defaults to ""
 			noencodepng: false // turn this to true if you want no datauris
 for pngs, just links out to png files
 		});
