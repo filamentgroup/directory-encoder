@@ -31,7 +31,23 @@
 				new Constructor(["foo.svg"]);
 			}, "Two arguments should be passed in, files and an output file name");
 			test.done();
-		}
+		},
+		twoargs: function( test ){
+			test.expect(8);
+			var output = "testfile.css";
+
+			var de = new Constructor( ["foo.svg", "bar.svg"], output );
+			test.equal( de.output, output, "Output should be set" );
+			test.equal( de.files[0], "foo.svg", "First file should match foo.svg" );
+			test.equal( de.files[1], "bar.svg", "First file should match foo.svg" );
+
+			test.equal( de.prefix, ".icon-", "Default prefix is .icon-" );
+			test.equal( Object.keys(de.customselectors).length, 0, "Default custom selectors is empty object" );
+			test.deepEqual( de.template, false, "Default value for a template is false" );
+			test.deepEqual( de.templatePrepend, "", "Defaul value for templatePrepend is empty string" );
+			test.deepEqual( de.templateAppend, "", "Defaul value for templateAppend is empty string" );
+
+			test.done();
 		}
 
 	};
