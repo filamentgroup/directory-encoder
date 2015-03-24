@@ -23,6 +23,14 @@
 				new Constructor();
 			}, "Constructor should throw error if now arguments passed in");
 			test.done();
+		},
+		onearg: function( test ){
+			test.expect(1);
+			test.throws(function(){
+				new Constructor(["foo.svg"]);
+			}, "Two arguments should be passed in, files and an output file name");
+			test.done();
+		}
 		}
 
 	};
