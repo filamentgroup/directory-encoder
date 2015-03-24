@@ -30,7 +30,7 @@
 	"dependencies": {
 		"fs-extra": "0.8.1",
 		"handlebars": "1.1.2",
-		"lodash":"2.4.0",
+		"lodash": "2.4.0",
 		"img-stats": "0.4.2"
 	},
 	"devDependencies": {
