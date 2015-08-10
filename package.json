@@ -20,7 +20,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt travis --verbose"
+    "test": "node_modules/.bin/grunt travis --verbose"
   },
   "dependencies": {
     "fs-extra": "^0.23.1",
