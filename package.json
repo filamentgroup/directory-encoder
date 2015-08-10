@@ -4,8 +4,8 @@
   "version": "0.7.1",
   "homepage": "https://github.com/filamentgroup/directory-encoder",
   "author": {
-    "name": "John Bender/Jeffrey Lembeck/Filament Group",
-    "email": "thegroup@filamentgroup.com"
+    "email": "thegroup@filamentgroup.com",
+    "name": "John Bender/Jeffrey Lembeck/Filament Group"
   },
   "repository": {
     "type": "git",
