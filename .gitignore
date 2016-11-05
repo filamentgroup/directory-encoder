@@ -2,3 +2,4 @@
 /node_modules/
 .vimdir
 .idea
+npm-debug.log
