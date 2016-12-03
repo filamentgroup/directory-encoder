@@ -295,10 +295,34 @@
 														},
 														noencodepng: true
 													} );
+
+			// set up for custom HBS helper tests
+			this.helperFnCalled = false;
+			this.hbsCallbackCalled = false;
+
+			this.helperFn = function(n1, n2) {
+				this.helperFnCalled = true;
+				return (n1 + n2).toString();
+			};
+
+			this.hbsCallback = function (hbs) {
+				this.hbsCallbackCalled = true;
+				hbs.registerHelper('add', this.helperFn.bind(this));
+			};
+
+			this.encoder3 = new Constructor( ["test/directory-files/bear.svg"], "test/output/encode3.css",
+				{
+					template: path.resolve( "test/files/custom-hbs-helper.hbs" ),
+					handlebarsCallback: this.hbsCallback.bind(this)
+				} );
+
 			done();
 		},
 		tearDown: function( done ){
-			["", "2"].forEach(function( i ){
+			this.helperFnCalled = false;
+			this.hbsCallbackCalled = false;
+
+			["", "2", "3"].forEach(function( i ){
 				if( fs.existsSync( "test/output/encode" + i + ".css" ) ){
 					fs.unlinkSync( "test/output/encode" + i + ".css" );
 				}
@@ -322,6 +346,22 @@
 			test.ok( fs.existsSync( "test/output/encode2.css" ) , "CSS file exists" );
 			data = fs.readFileSync( "test/output/encode2.css" ).toString( 'utf-8' );
 			test.equal( data, outputFileData2, "Encoded file matches" );
+
+			test.done();
+		},
+
+		'withHandlebarsCallback': function (test)
+		{
+			test.expect( 4 );
+
+			this.encoder3.encode();
+
+			test.ok( this.hbsCallbackCalled, "Handlebars callback should be called" );
+			test.ok( this.helperFnCalled, "Handlebars helper should be called" );
+
+			test.ok( fs.existsSync( "test/output/encode3.css" ) , "CSS file exists" );
+			var data = fs.readFileSync( "test/output/encode3.css" ).toString( 'utf-8' );
+			test.ok( /^3/.test(data), "Encoded file matches" );
 
 			test.done();
 		}
