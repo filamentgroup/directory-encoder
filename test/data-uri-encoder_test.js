@@ -175,23 +175,23 @@
 		}
 	};
 	exports['PngURIEncoder4'] = {
-        setUp: function( done ) {
-        	this.encoder = new PngURIEncoder( "test/files/cat.png" );
-            	done();
-        },
-        tearDown: function( done ){
-        	done();
-        },
-        noencode_url_pngpath_http: function( test ){
-        	var options = {
+		setUp: function( done ) {
+			this.encoder = new PngURIEncoder( "test/files/cat.png" );
+				done();
+		},
+		tearDown: function( done ){
+			done();
+		},
+		noencode_url_pngpath_http: function( test ){
+			var options = {
 			noencodepng: true,
 			pngpath: "http://myhost.com/images/"
 		};
 
 		test.equal( this.encoder.encode(options), 'http://myhost.com/images/cat.png' );
 		test.done();
-        },
-        noencode_url_pngpath_https: function( test ){
+		},
+		noencode_url_pngpath_https: function( test ){
 		var options = {
 			noencodepng: true,
 			pngpath: "https://myhost.com/images/"
@@ -199,8 +199,8 @@
 
 		test.equal( this.encoder.encode(options), 'https://myhost.com/images/cat.png' );
 		test.done();
-        },
-        noencode_url_pngpath_schemaless: function( test ){
+		},
+		noencode_url_pngpath_schemaless: function( test ){
 		var options = {
 			noencodepng: true,
 			pngpath: "//mycdn.com/images/"
@@ -208,6 +208,6 @@
 
 		test.equal( this.encoder.encode(options), '//mycdn.com/images/cat.png' );
 		test.done();
-        }
-    };
+		}
+	};
 }());
