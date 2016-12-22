@@ -6,6 +6,7 @@
 	var SvgURIEncoder = require( path.join('..', 'lib', 'svg-uri-encoder'));
 	var PngURIEncoder = require( path.join('..', 'lib', 'png-uri-encoder'));
 	var _ = require( 'lodash' );
+	var fs = require( 'fs' );
 
 	exports['Constructor'] = {
 		setUp: function( done ) {
@@ -208,6 +209,24 @@
 
 		test.equal( this.encoder.encode(options), '//mycdn.com/images/cat.png' );
 		test.done();
+		}
+	};
+	exports['PngURIEncoder5'] = {
+		setUp: function( done ) {
+			this.encoder = new PngURIEncoder( "test/files/android_128x128.png" );
+			done();
+		},
+		tearDown: function( done ){
+			done();
+		},
+		encode: function( test ){
+			var options = {
+				pngfolder: "",
+				forcedatauri: true
+			};
+
+			test.equal( this.encoder.encode(options), fs.readFileSync( "test/files/android_128x128-datauri.txt" ).toString( 'utf-8' ) );
+			test.done();
 		}
 	};
 }());
