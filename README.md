@@ -10,16 +10,14 @@ Install the module with: `npm install directory-encoder`
 ```javascript
 var DirectoryEncoder = require('directory-encoder');
 var de = new DirectoryEncoder( source, destinationCSSFile, {
-			pngfolder: pngfolder, //in case you need to link out for PNGs,
-like when the datauri is way too long
+			pngfolder: pngfolder, //in case you need to link out for PNGs, like when the datauri is way too long
 			customselectors: { "foo": [".bar", ".baz"]}, 
 			prefix: ".icon-", // used to prefix the name of the file for the CSS classname, .icon- is the default
 			templatePrepend: "/* start of icon-list */", // this string is prepended to the destinationCSSFile, defaults to ""
 			handlebarsCallback: function(hbs) { /* configure handlebars, with custom helpers for example */ }, // callback to configure handlebars
 			template: template.hbs, //template in handlebars, FANCY!
 			templateAppend: "/* end of icon-list */", // this string is appended to the destinationCSSFile, defaults to ""
-			noencodepng: false // turn this to true if you want no datauris
-for pngs, just links out to png files
+			noencodepng: false // turn this to true if you want no datauris for pngs, just links out to png files
 		});
 de.encode(); // "Guitar solo -- File outputted"
 ```
@@ -43,12 +41,10 @@ All the magic happens here.
 ## Examples
 ```
 var de = new DirectoryEncoder( source, destinationCSSFile, {
-			pngfolder: pngfolder, //in case you need to link out for PNGs,
-like when the datauri is way too long
+			pngfolder: pngfolder, //in case you need to link out for PNGs, like when the datauri is way too long
 			customselectors: { "foo": [".bar", ".baz"]}, 
 			template: template.hbs, //template in handlebars, FANCY!
-			noencodepng: false // turn this to true if you want no datauris
-for pngs, just links out to png files
+			noencodepng: false // turn this to true if you want no datauris for pngs, just links out to png files
 		});
 de.encode(); // "Guitar solo -- File outputted"
 ```

@@ -6,6 +6,7 @@
 	var SvgURIEncoder = require( path.join('..', 'lib', 'svg-uri-encoder'));
 	var PngURIEncoder = require( path.join('..', 'lib', 'png-uri-encoder'));
 	var _ = require( 'lodash' );
+	var fs = require( 'fs' );
 
 	exports['Constructor'] = {
 		setUp: function( done ) {
@@ -175,23 +176,23 @@
 		}
 	};
 	exports['PngURIEncoder4'] = {
-        setUp: function( done ) {
-        	this.encoder = new PngURIEncoder( "test/files/cat.png" );
-            	done();
-        },
-        tearDown: function( done ){
-        	done();
-        },
-        noencode_url_pngpath_http: function( test ){
-        	var options = {
+		setUp: function( done ) {
+			this.encoder = new PngURIEncoder( "test/files/cat.png" );
+				done();
+		},
+		tearDown: function( done ){
+			done();
+		},
+		noencode_url_pngpath_http: function( test ){
+			var options = {
 			noencodepng: true,
 			pngpath: "http://myhost.com/images/"
 		};
 
 		test.equal( this.encoder.encode(options), 'http://myhost.com/images/cat.png' );
 		test.done();
-        },
-        noencode_url_pngpath_https: function( test ){
+		},
+		noencode_url_pngpath_https: function( test ){
 		var options = {
 			noencodepng: true,
 			pngpath: "https://myhost.com/images/"
@@ -199,8 +200,8 @@
 
 		test.equal( this.encoder.encode(options), 'https://myhost.com/images/cat.png' );
 		test.done();
-        },
-        noencode_url_pngpath_schemaless: function( test ){
+		},
+		noencode_url_pngpath_schemaless: function( test ){
 		var options = {
 			noencodepng: true,
 			pngpath: "//mycdn.com/images/"
@@ -208,6 +209,24 @@
 
 		test.equal( this.encoder.encode(options), '//mycdn.com/images/cat.png' );
 		test.done();
-        }
-    };
+		}
+	};
+	exports['PngURIEncoder5'] = {
+		setUp: function( done ) {
+			this.encoder = new PngURIEncoder( "test/files/android_128x128.png" );
+			done();
+		},
+		tearDown: function( done ){
+			done();
+		},
+		encode: function( test ){
+			var options = {
+				pngfolder: "",
+				forcedatauri: true
+			};
+
+			test.equal( this.encoder.encode(options), fs.readFileSync( "test/files/android_128x128-datauri.txt" ).toString( 'utf-8' ) );
+			test.done();
+		}
+	};
 }());
