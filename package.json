@@ -1,7 +1,7 @@
 {
   "name": "directory-encoder",
   "description": "Encode a directory of images to CSS",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "homepage": "https://github.com/filamentgroup/directory-encoder",
   "author": {
     "email": "thegroup@filamentgroup.com",
