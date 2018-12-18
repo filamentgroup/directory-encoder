@@ -5,7 +5,6 @@
 	var Constructor = require( path.join('..', 'lib', 'data-uri-encoder'));
 	var SvgURIEncoder = require( path.join('..', 'lib', 'svg-uri-encoder'));
 	var PngURIEncoder = require( path.join('..', 'lib', 'png-uri-encoder'));
-	var _ = require( 'lodash' );
 	var fs = require( 'fs' );
 
 	exports['Constructor'] = {
@@ -108,12 +107,13 @@
 	exports['PngURIEncoder'] = {
 		setUp: function( done ) {
 			this.encoder = new PngURIEncoder( "test/files/cat.png" );
-			this.encode = _.clone( Constructor.prototype.encode );
+			this.savedEncode = Constructor.prototype.encode;
 			done();
 		},
 
 		tearDown: function( done ) {
-			Constructor.prototype.encode = this.encode;
+			// restore
+			Constructor.prototype.encode = this.savedEncode;
 			done();
 		},
 
@@ -151,7 +151,6 @@
 				noencodepng: true,
 				pngfolder: "bar"
 			};
-
 			test.equal( this.encoder.encode(options), 'bar/cat.png' );
 			test.done();
 		}
