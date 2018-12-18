@@ -52,6 +52,12 @@ de.encode(); // "Guitar solo -- File outputted"
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
+## Roadmap
+
+This repository is now using [lodash style issue management](https://twitter.com/samselikoff/status/991395669016436736) for enhancements. This means enhancement issues will now be closed instead of leaving them open.
+
+View [the enhancement backlog here](https://github.com/filamentgroup/directory-encoder/issues?utf8=%E2%9C%93&q=label%3Aneeds-votes+sort%3Areactions-%2B1-desc+).
+
 ## Release History
 
 * 0.7.0  Add templateAppend and templatePrepend options
