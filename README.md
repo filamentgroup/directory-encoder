@@ -1,3 +1,5 @@
+:warning: This project is archived and the repository is no longer maintained.
+
 # directory-encoder [![Build Status](https://secure.travis-ci.org/filamentgroup/directory-encoder.png?branch=master)](http://travis-ci.org/filamentgroup/directory-encoder)
 
 [![Filament Group](http://filamentgroup.com/images/fg-logo-positive-sm-crop.png) ](http://www.filamentgroup.com/)
